@@ -1,31 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int player_1_Score = 0;
-    public int player_2_Score = 0;
-    public TMP_Text txt_PlayerScore_1;
-    public TMP_Text txt_PlayerScore_2;
-
     public static GameManager Instance;
 
-    public void Awake()
+    public int Score_L;
+    public int Score_R;
+    public string WinnerL,WinnerR;
+    public TMP_Text Winner;
+
+    public TMP_Text Player_Score_L;
+    public TMP_Text Player_Score_R;
+    public GameObject Pannelwin;
+
+    void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
+
     void Start()
     {
-        txt_PlayerScore_1.text = PlayerScore_1.Tostring();
-        txt_PlayerScore_2.text = PlayerScore_2.Tostring();
+        Score_L = 0;
+        Score_R = 0;
+
+        Player_Score_L.text = Score_L.ToString();
+        Player_Score_R.text = Score_R.ToString();
+    }
+
+    public void score(string wallID)
+    {
+        if (wallID == "Goal_L")
+        {
+            Score_R = Score_R + 1;
+            Player_Score_R.text = Score_R.ToString();
+            scoring();
+        }
+
+        else 
+        {
+            Score_L = Score_L + 1;
+            Player_Score_L.text = Score_L.ToString();
+            scoring();
+        }
+        
+    }
+
+    public void scoring()
+    {
+        if(Score_L == 10)
+        {
+            Winner.text = WinnerL;
+            Pannelwin.SetActive(true);
+        }
+        else if(Score_R == 10)
+        {
+            Winner.text = WinnerR;
+            Pannelwin.SetActive(true);
+        }
     }
 }

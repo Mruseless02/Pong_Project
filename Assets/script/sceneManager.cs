@@ -16,3 +16,4 @@ public class sceneManager : MonoBehaviour
         Application.Quit();
     }
 }
+

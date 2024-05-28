@@ -1,39 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class ball : MonoBehaviour
+public class Ball : MonoBehaviour
 {
     private Rigidbody2D rb;
-    // Start is called before the first frame update
-    void Start()
+    public float Maxspeed = 10f;
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Invoke("GoBall", 2);
     }
     void GoBall()
     {
-        float rand = Random.Range(0,2);
+        float rand = Random.Range(0, 2);
 
-        if(rand < 1)
+        if (rand > 1)
         {
-            rb.AddForce(new Vector2(20,- 15));
+            rb.AddForce(new Vector2(20, 0));
         }
-        else
+        else if (rand < 1)
         {
-            rb.AddForce(new Vector2(-20, -15));
+            rb.AddForce(new Vector2(-20, 0));
         }
     }
 
-    void ResetBall()
+    void resetBall()
     {
         rb.velocity = Vector2.zero;
         transform.position = Vector2.zero;
     }
 
-    void ResetGame()
+    void resetGame()
     {
-        ResetBall();
+        resetBall();
         Invoke("GoBall", 1);
     }
 
@@ -41,14 +42,20 @@ public class ball : MonoBehaviour
     {
         if (coll.collider.CompareTag("Player"))
         {
-            Vector2 vel;
-            vel.x = rb.velocity.x;
-            vel.y = (rb.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
-            rb.velocity = vel;
+            {
+                Vector2 vel;
+                vel.x = rb.velocity.x;
+                vel.y = (rb.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
+                rb.velocity = vel;
+            }
         }
-        if (coll.collider.CompareTag("Goal"))
+    }
+
+    void Update()
+    {
+        if(rb.velocity.magnitude > Maxspeed)
         {
-            ResetBall();
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, Maxspeed);
         }
     }
 }

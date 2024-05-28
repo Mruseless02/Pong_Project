@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 8d4c69e3f1a6478459b5b0c6444ead4e
+  productGUID: 9b103017a8b4594459879f9b2c82ac16
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Pong
+  productName: Air Hocky
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -629,14 +629,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Pong
+  metroPackageName: Air Hocky
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Pong
+  metroApplicationDescription: Air Hocky
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -704,10 +704,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 33ece414-93f9-4615-b87b-92a8a38cb7c4
+  cloudProjectId: 1118674a-ba5d-42da-82a9-11e0e96d1c65
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Pong
+  projectName: Air Hocky
   organizationId: shotta021128
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

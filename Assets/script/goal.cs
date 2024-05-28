@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
-public class goal : MonoBehaviour
+public class Goal : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D hitinfo)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(hitinfo.name == "puck")
+        if (hitInfo.name == "puck")
         {
-            string wallname = transform.name;
-            // manggil metchode score di game manager
-            GameManager.Instance.score(wallname);
-            //manggil restart game dari ball.cs
-            hitinfo.gameObject.SendMessage("RestartGame", 1.0f, SendMessageOptions.RequireReceiver);
+            string wallName = transform.name;
+            hitInfo.gameObject.SendMessage("resetBall");
+            GameManager.Instance.score(wallName);
         }
     }
 }
